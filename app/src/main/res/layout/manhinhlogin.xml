@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundlogin">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="50dp"
+        app:cardBackgroundColor="#dec37b"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="53dp"
+
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Đăng Nhập"
+                android:textAlignment="center"
+                android:textColor="#62b5ec"
+                android:textSize="36dp"
+                android:textStyle="bold"
+                />
+            <EditText
+                android:id="@+id/edtTenDangNhap"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/editcustom"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="10dp"
+                android:hint="Tên Đăng Nhập"
+                android:padding="5dp"
+                android:textColorHint="#020024" />
+            <EditText
+                android:id="@+id/edtMatKhau"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/editcustom"
+                android:drawableLeft="@drawable/outline_password_24"
+                android:drawablePadding="10dp"
+                android:hint="Mật Khẩu"
+                android:inputType="textPassword"
+                android:padding="7dp"
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:textColorHint="#020024" />
+            <CheckBox
+                android:text="Nhớ mật khẩu"
+                android:id="@+id/cbNhoMatKhau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/white"
+                android:textSize="12sp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="#62b5ec"
+                    android:text="Đăng Nhập"
+                    android:textColor="@color/black"
+                    android:id="@+id/btnDangNhap"/>
+
+                <Button
+                    android:id="@+id/btnDangKy"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:backgroundTint="#62b5ec"
+                    android:text="Đăng Ký"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <TextView
+                  android:textStyle="bold"
+                  android:layout_width="120dp"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginRight="5dp"
+                  android:backgroundTint="#62b5ec"
+                  android:text="Quên Mật Khẩu"
+                  android:textColor="@color/black"
+                  android:id="@+id/tvQuenMatKhau"/>
+
+          </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
