@@ -63,20 +63,20 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(ctHoaDon);
 
 
-        //Tạo username và password
-        db.execSQL("INSERT INTO nguoidung  VALUES(1,'duongtien','123','Dương Tiến',0332322764,'tiendhph30203@fpt.edu.vn','121 Mỹ Đình','Vip')" +
-                ",(2,'duongyen','123abc123','Dương Yến',0384867860,'duongtienpkfr@gmail.com','123 Mỹ Đình','No Vip')");
-
-        //Tạo loại sản phẩm
-        db.execSQL("INSERT INTO loaisanpham VALUES (1, 'Gà'),(2,'Trà Sữa'),(3, 'Coffee')");
-
-        //Tạo sản phẩm
-        db.execSQL("INSERT INTO sanpham VALUES (1, NONE, 'Link 1', 'KFC', 1000,10,20,1,'01/06/2023','30/06/2023')," +
-                "(2, NONE, 'Link 2', 'Tocotoco', 2000,10,20,2,'01/06/2023','30/06/2023'), " +
-                "(3, NONE, 'Link 3', 'Bạc xỉu', 3000,10,18,3,'01/06/2023','30/06/2023')");
-
-        //Tạo hóa đơn
-        db.execSQL("INSERT INTO hoadon VALUES(1,'15/07/2023',3000,'Đã giao',1),(2,'20/07/2023',3000,'Chưa giao',2)");
+//        //Tạo username và password
+//        db.execSQL("INSERT INTO nguoidung  VALUES(1,'duongtien','123','Dương Tiến',0332322764,'tiendhph30203@fpt.edu.vn','121 Mỹ Đình','Vip')" +
+//                ",(2,'duongyen','123abc123','Dương Yến',0384867860,'duongtienpkfr@gmail.com','123 Mỹ Đình','No Vip')");
+//
+//        //Tạo loại sản phẩm
+//        db.execSQL("INSERT INTO loaisanpham VALUES (1, 'Gà'),(2,'Trà Sữa'),(3, 'Coffee')");
+//
+//        //Tạo sản phẩm
+//        db.execSQL("INSERT INTO sanpham VALUES (1, NONE, 'Link 1', 'KFC', 1000,10,20,1,'01/06/2023','30/06/2023')," +
+//                "(2, NONE, 'Link 2', 'Tocotoco', 2000,10,20,2,'01/06/2023','30/06/2023'), " +
+//                "(3, NONE, 'Link 3', 'Bạc xỉu', 3000,10,18,3,'01/06/2023','30/06/2023')");
+//
+//        //Tạo hóa đơn
+//        db.execSQL("INSERT INTO hoadon VALUES(1,'15/07/2023',3000,'Đã giao',1),(2,'20/07/2023',3000,'Chưa giao',2)");
 
     }
 
