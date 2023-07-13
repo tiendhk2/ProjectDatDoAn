@@ -41,13 +41,14 @@ public class Database extends SQLiteOpenHelper {
                 "anhsanpham BLOG," +
                 "linkanhsanpham TEXT," +
                 "tensanpham TEXT NOT NULL ," +
-                "giasanpham INTEGER NOT NULL ," +
-                "giamgia INTEGER NOT NULL ," +
-                "soluong INTEGER NOT NULL ," +
+                "giasanpham TEXT NOT NULL ," +
+                "giamgia TEXT NOT NULL ," +
+                "soluongtrongkho INTEGER NOT NULL ," +
                 "maloai INTEGER REFERENCES loaisanpham(maloai)," +
                 "ngaysanxuat TEXT NOT NULL," +
                 "hansudung TEXT NOT NULL)";
         db.execSQL(ctSanPham);
+
 
 
         //Create table Hóa Đơn
@@ -56,6 +57,7 @@ public class Database extends SQLiteOpenHelper {
                 "ngaymua TEXT NOT NULL," +
                 "tongtien INTEGER NOT NULL," +
                 "trangthai TEXT NOT NULL," +
+                "soluongdamua INTEGER NOT NULL," +
                 "masanpham INTEGER REFERENCES sanpham(masanpham)," +
                 "manguoidung INTEGER REFERENCES nguoidung(manguoidung))";
         db.execSQL(ctHoaDon);
