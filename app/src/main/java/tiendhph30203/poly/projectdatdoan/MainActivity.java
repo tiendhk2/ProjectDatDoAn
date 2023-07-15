@@ -6,35 +6,30 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import tiendhph30203.poly.projectdatdoan.FragmentHoaDon.DonMuaFragment;
 import tiendhph30203.poly.projectdatdoan.LoaiSanPham.LoaiSanPhamFragment;
 import tiendhph30203.poly.projectdatdoan.ManHinhChinh.ManHinhChinhFragment;
-import tiendhph30203.poly.projectdatdoan.QuanLyHoaDon.QuanLyHoaDonFragment;
 import tiendhph30203.poly.projectdatdoan.QuanLyKhachHang.QuanLyKhachHangFragment;
 import tiendhph30203.poly.projectdatdoan.SanPham.SanPhamFragment;
 import tiendhph30203.poly.projectdatdoan.ThongKeDoanhThu.ThongKeDoanhThuFragment;
@@ -117,7 +112,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             repLaceFragment(SanPhamFragment.newInstance());
             drawerLayout.close();
         } else if (id == R.id.itQuanLyHoaDon) {
-            repLaceFragment(QuanLyHoaDonFragment.newInstance());
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            Fragment fragment = null;
+            fragment = new Tablayoutactivity();
+            drawerLayout.close();
+            fragmentManager.beginTransaction().replace(R.id.LayoutConten, fragment).commit();
+        } else if (id == R.id.itQuanLyDonMua) {
+            repLaceFragment(DonMuaFragment.newInstance());
             drawerLayout.close();
         } else if (id == R.id.itQuanLyKhachHang) {
             repLaceFragment(QuanLyKhachHangFragment.newInstance());

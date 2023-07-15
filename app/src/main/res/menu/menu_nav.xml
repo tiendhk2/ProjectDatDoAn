@@ -13,6 +13,9 @@
             android:id="@+id/itSanPham"
             android:title="Quản lý sản phẩm" />
         <item
+            android:id="@+id/itQuanLyDonMua"
+            android:title="Đơn Mua" />
+        <item
             android:id="@+id/itQuanLyHoaDon"
             android:title="Quản Lý Hóa Đơn" />
 

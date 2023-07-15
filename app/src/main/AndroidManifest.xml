@@ -17,10 +17,13 @@
         android:theme="@style/Theme.ProjectDatDoAn"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Tablayoutactivity"
             android:exported="false" />
         <activity
             android:name=".manhinhlogin"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
