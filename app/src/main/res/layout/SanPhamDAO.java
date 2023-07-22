@@ -1,9 +1,5 @@
 package tiendhph30203.poly.projectdatdoan.SanPham;
 
-<<<<<<< HEAD
-import android.annotation.SuppressLint;
-=======
->>>>>>> origin/master
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -56,12 +52,9 @@ public class SanPhamDAO {
     }
 
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> origin/master
     public int delete(int masanpham) {
         Cursor cursor = db.rawQuery("SELECT * FROM hoadon WHERE masanpham = ?", new String[]{String.valueOf(masanpham)});
         if (cursor.getCount() != 0) {
@@ -121,14 +114,11 @@ public class SanPhamDAO {
 //    }
 
 
-<<<<<<< HEAD
-=======
 
 
 
 
 
->>>>>>> origin/master
 //    public ArrayList<Sach> getSachne() {
 //        ArrayList<Sach> list = new ArrayList<>();
 //        Cursor cursor = db.rawQuery("SELECT * FROM sach", null);
@@ -166,22 +156,10 @@ public class SanPhamDAO {
 //            while (cursor.moveToNext());
 //        }
 
-<<<<<<< HEAD
-    //
-//        return list;
-//    }
-//get data theo id
-    public SanPham getID(String id) {
-        String sql = "SELECT * FROM sanpham WHERE masanpham=?";
-        List<SanPham> list = getData(sql, id);
-        return list.get(0);
-    }
-=======
 //
 //        return list;
 //    }
 
->>>>>>> origin/master
 
 
 }
