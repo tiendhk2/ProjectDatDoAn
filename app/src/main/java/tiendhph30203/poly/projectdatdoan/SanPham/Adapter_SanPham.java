@@ -22,10 +22,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-import tiendhph30203.poly.projectdatdoan.LoaiSanPham.Adapter_LoaiSanPham;
-=======
->>>>>>> origin/master
 import tiendhph30203.poly.projectdatdoan.LoaiSanPham.LoaiSanPham;
 import tiendhph30203.poly.projectdatdoan.LoaiSanPham.LoaiSanPhamDAO;
 import tiendhph30203.poly.projectdatdoan.R;
@@ -58,11 +54,8 @@ public class Adapter_SanPham extends RecyclerView.Adapter<Adapter_SanPham.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View view = inflater.inflate(R.layout.item_recyclesanpham, parent, false);
-<<<<<<< HEAD
         return new Adapter_SanPham.ViewHolder(view);
-=======
-        return new ViewHolder(view);
->>>>>>> origin/master
+
     }
 
     @Override
