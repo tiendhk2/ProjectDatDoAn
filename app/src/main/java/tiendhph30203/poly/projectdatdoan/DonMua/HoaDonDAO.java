@@ -33,12 +33,16 @@ public class HoaDonDAO {
         return list;
     }
 
+    public List<HoaDon> getAll() {
+        String sql = "SELECT * FROM hoadon";
+        return getDSHoaDon(sql);
+    }
 
 
-    public List<HoaDon> getDSHoaDonTrangThai(String sql, String... SelectArgt) {
+    public List<HoaDon> getDSTrangThai0(String sql, String... SelectArgt) {
         List<HoaDon> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = database.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT hd.mahoadon, nd.manguoidung, sp.masanpham,nd.hoten, hd.ngaymua, hd.tongtien, hd.trangthai, hd.soluongdamua\n" + "FROM hoadon hd, nguoidung nd, sanpham sp\n" + "WHERE hd.manguoidung = nd.manguoidung and hd.masanpham =sp.masanpham and hd.trangthai = 0\n", null);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT hd.mahoadon, nd.manguoidung, sp.masanpham,nd.hoten, hd.ngaymua, hd.tongtien, hd.trangthai, hd.soluongdamua\n" + "FROM hoadon hd, nguoidung nd, sanpham sp\n" + "WHERE hd.manguoidung = nd.manguoidung and hd.masanpham =sp.masanpham and trangthai = 0 \n", null);
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
@@ -48,19 +52,36 @@ public class HoaDonDAO {
         return list;
     }
 
-
-    public List<HoaDon> getAll2() {
+    public List<HoaDon> getTrangThai0() {
         String sql = "SELECT * FROM hoadon";
-        return getDSHoaDonTrangThai(sql);
+        return getDSTrangThai0(sql);
     }
 
 
-
-
-    public int delete(HoaDon obj){
-        return db.delete("hoadon", "mahoadon=?",new String[]{String.valueOf(obj.getMahoadon())});
+    public List<HoaDon> getDSTrangThai1(String sql, String... SelectArgt) {
+        List<HoaDon> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = database.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("trangthai", 1);
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT hd.mahoadon, nd.manguoidung, sp.masanpham,nd.hoten, hd.ngaymua, hd.tongtien, hd.trangthai, hd.soluongdamua\n" + "FROM hoadon hd, nguoidung nd, sanpham sp\n" + "WHERE hd.manguoidung = nd.manguoidung and hd.masanpham =sp.masanpham and trangthai = 1 \n", null);
+        if (cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            do {
+                list.add(new HoaDon(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5), cursor.getInt(6), cursor.getInt(7)));
+            } while (cursor.moveToNext());
+        }
+        return list;
     }
 
+    public List<HoaDon> getTrangThai1() {
+        String sql = "SELECT * FROM hoadon";
+        return getDSTrangThai1(sql);
+    }
+
+
+    public int delete(HoaDon obj) {
+        return db.delete("hoadon", "mahoadon=?", new String[]{String.valueOf(obj.getMahoadon())});
+    }
 
 
     public int update(HoaDon obj) {
@@ -81,18 +102,11 @@ public class HoaDonDAO {
         return list;
     }
 
-    public List<HoaDon> getAll() {
-        String sql = "SELECT * FROM hoadon";
-        return getDSHoaDon(sql);
-    }
-
     public List<HoaDon> getAllKH(String manguoidung) {
         String sql = "SELECT * FROM hoadon WHERE manguoidung=?";
         List<HoaDon> list = getDSHoaDon(sql, manguoidung);
         return list;
     }
-
-
 
     public boolean thayDoiTrangThai(int mahoadon) {
         SQLiteDatabase sqLiteDatabase = database.getWritableDatabase();
@@ -103,25 +117,6 @@ public class HoaDonDAO {
             return false;
         }
         return true;
-    }
-
-
-    public boolean themHoaDon(HoaDon hoaDon) {
-        SQLiteDatabase sqLiteDatabase = database.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("mahoadon", hoaDon.getMahoadon());
-        contentValues.put("ngaymua", hoaDon.getNgaymua());
-        contentValues.put("tongtien", hoaDon.getTongtien());
-        contentValues.put("trangthai", hoaDon.getTrangthai());
-        contentValues.put("soluongdamua", hoaDon.getSoluongdamua());
-        contentValues.put("masanpham", hoaDon.getMasanpham());
-//        contentValues.put("manguoidung", hoaDon.getManguoidung());
-        long check = sqLiteDatabase.insert("hoadon", null, contentValues);
-        if (check == -1) {
-            return false;
-        }
-        return true;
-
     }
 
 

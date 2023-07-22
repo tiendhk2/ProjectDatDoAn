@@ -22,29 +22,49 @@ import tiendhph30203.poly.projectdatdoan.R;
 
 public class DangGiaoFragment extends Fragment {
 
-    RecyclerView recycleViewDangGiao;
-    private RecyclerView recyclerViewDonMua;
+
+    private RecyclerView recycleViewDangGiao;
     HoaDonDAO qlhd;
-    private HoaDonDAO hoaDonDAO;
-    ArrayList<HoaDon> list = new ArrayList<>();
+     HoaDonDAO hoaDonDAO;
+    ArrayList<HoaDon> list;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_don_mua, container, false);
-        recyclerViewDonMua = view.findViewById(R.id.rcDonMua);
+        View view = inflater.inflate(R.layout.danggiao_fragment, container, false);
+        recycleViewDangGiao = view.findViewById(R.id.recycleViewDangGiao);
         loadData();
+//
+//        ArrayList<HoaDon> list = new ArrayList<>();
+//        qlhd = new HoaDonDAO(getContext());
+//        list = (ArrayList<HoaDon>) qlhd.getTrangThai0();
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+//        recycleViewDangGiao.setLayoutManager(linearLayoutManager);
+//        Adapter_DangGiao adapter_phieuMuon = new Adapter_DangGiao(list, getContext(),qlhd);
+//        recycleViewDangGiao.setAdapter(adapter_phieuMuon);
+//
+//
+//        FragmentManager manager= getActivity().getSupportFragmentManager();
+//        DaGiaoFragment daGiaoFragment = (DaGiaoFragment) manager.findFragmentById(R.id.fragment2);
+//        daGiaoFragment.recycleViewDaGiao.setLayoutManager();
+
         return view;
     }
-    public void loadData() {
-        qlhd = new HoaDonDAO(getContext());
-        list = (ArrayList<HoaDon>) hoaDonDAO.getAll();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerViewDonMua.setLayoutManager(linearLayoutManager);
-        Adapter_DangGiao adapter_phieuMuon = new Adapter_DangGiao(list, getContext(),qlhd);
-        recyclerViewDonMua.setAdapter(adapter_phieuMuon);
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadData();
     }
 
-
+    public void loadData() {
+        ArrayList<HoaDon> list = new ArrayList<>();
+        qlhd = new HoaDonDAO(getContext());
+        list = (ArrayList<HoaDon>) qlhd.getTrangThai0();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recycleViewDangGiao.setLayoutManager(linearLayoutManager);
+        Adapter_DangGiao adapter_phieuMuon = new Adapter_DangGiao(list, getContext(),qlhd);
+        recycleViewDangGiao.setAdapter(adapter_phieuMuon);
+    }
 
 }

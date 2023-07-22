@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đổi Mật Khẩu"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
+    <EditText
+        android:hint="Nhập mật khẩu cũ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtPassCu"/>
+    <EditText
+        android:hint="Nhập mật khẩu mới"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtPassMoi"/>
+    <EditText
+        android:hint="Nhập lại mật khẩu mới"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtPassMoi2"/>
+
+</LinearLayout>

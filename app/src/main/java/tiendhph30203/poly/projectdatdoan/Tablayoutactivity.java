@@ -22,11 +22,11 @@ public class Tablayoutactivity extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_tablayoutactivity, container, false);
-        TabLayout tabLayoutChi = view.findViewById(R.id.tabLayoutChi);
-        ViewPager2 viewPager2Chi = view.findViewById(R.id.viewPager2Chi);
+        TabLayout tabLayout1 = view.findViewById(R.id.tabLayout1);
+        ViewPager2 viewPager1 = view.findViewById(R.id.viewPager1);
         HoaDonApdater adapter = new HoaDonApdater(getActivity());
-        viewPager2Chi.setAdapter(adapter);
-        new TabLayoutMediator(tabLayoutChi, viewPager2Chi, new TabLayoutMediator.TabConfigurationStrategy() {
+        viewPager1.setAdapter(adapter);
+        new TabLayoutMediator(tabLayout1, viewPager1, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 if (position == 0) {

@@ -1,24 +1,31 @@
 package tiendhph30203.poly.projectdatdoan.DonMua;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 import tiendhph30203.poly.projectdatdoan.R;
+import tiendhph30203.poly.projectdatdoan.SanPham.Adapter_SanPham;
+import tiendhph30203.poly.projectdatdoan.SanPham.SanPham;
+import tiendhph30203.poly.projectdatdoan.SanPham.SanPhamDAO;
 
 public class Adapter_DaGiao extends RecyclerView.Adapter<Adapter_DaGiao.ViewHolder> {
     ArrayList<HoaDon> list;
     Context context;
     private HoaDonDAO hoaDonDAO;
+
 
     public Adapter_DaGiao(ArrayList<HoaDon> list, Context context, HoaDonDAO hoaDonDAO) {
         this.list = list;
@@ -54,11 +61,11 @@ public class Adapter_DaGiao extends RecyclerView.Adapter<Adapter_DaGiao.ViewHold
             holder.txtTrangThai.setTextColor(Color.GREEN);
         }
 
-
-
-
-
     }
+
+
+
+
 
 
     @Override

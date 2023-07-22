@@ -27,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="nothing@fpt.edu.vn"
-        android:textColor="#d84b86" />
+        android:textColor="#d84b86"
+        android:id="@+id/txtMail"/>
 
 </LinearLayout>

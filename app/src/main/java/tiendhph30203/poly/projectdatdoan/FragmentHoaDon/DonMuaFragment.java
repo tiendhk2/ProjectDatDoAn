@@ -56,7 +56,7 @@ public class DonMuaFragment extends Fragment {
 
     public void loadData() {
         qlhd = new HoaDonDAO(getContext());
-        list = (ArrayList<HoaDon>) qlhd.getAll();
+        list = (ArrayList<HoaDon>) qlhd.getTrangThai0();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerViewDonMua.setLayoutManager(linearLayoutManager);
         Adapter_DonMua adapterDonMua = new Adapter_DonMua(list, getContext(),qlhd);

@@ -23,6 +23,10 @@
             android:id="@+id/itQuanLyKhachHang"
             android:title="Quản lý khách hàng" />
 
+        <item
+            android:id="@+id/itGioHang"
+            android:title="Giỏ Hàng" />
+
         <item android:title="Thống kê">
             <menu>
                 <item

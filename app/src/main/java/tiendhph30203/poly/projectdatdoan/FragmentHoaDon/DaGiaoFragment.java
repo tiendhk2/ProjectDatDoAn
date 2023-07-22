@@ -28,6 +28,7 @@ public class DaGiaoFragment extends Fragment {
     private RecyclerView recyclerViewDonMua;
     HoaDonDAO qlhd;
     ArrayList<HoaDon> list = new ArrayList<>();
+    private int trangthai;
 
 
     public DaGiaoFragment() {
@@ -40,47 +41,48 @@ public class DaGiaoFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadData1();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dagiao_fragment, container, false);
         recycleViewDaGiao = view.findViewById(R.id.recycleViewDaGiao);
+        loadData1();
         return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        getList(1);
-
-    }
-
-
-    public void loadData() {
+    public void loadData1() {
+        ArrayList<HoaDon> list = new ArrayList<>();
         qlhd = new HoaDonDAO(getContext());
+        list = (ArrayList<HoaDon>) qlhd.getTrangThai1();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recycleViewDaGiao.setLayoutManager(linearLayoutManager);
-        Adapter_DaGiao adapterDaGiao = new Adapter_DaGiao(list, getContext(), hoaDonDAO);
+        Adapter_DaGiao adapterDaGiao = new Adapter_DaGiao(list, getContext(),qlhd);
         recycleViewDaGiao.setAdapter(adapterDaGiao);
     }
 
-    private ArrayList<HoaDon> getList(int id) {
-        qlhd = new HoaDonDAO(getContext());
-        ArrayList<HoaDon> listDXN = null;
-        if (id == 1) {
-            ArrayList<HoaDon> list = (ArrayList<HoaDon>) qlhd.getAll();
-            listDXN = new ArrayList<>();
-            for (int i = 0; i < list.size(); i++) {
-                if (list.get(i).getTrangthai() == 1) {
-                    listDXN.add(list.get(i));
-                }
-            }
-        }
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recycleViewDaGiao.setLayoutManager(linearLayoutManager);
-        Adapter_DaGiao adapterDaGiao = new Adapter_DaGiao(listDXN, getContext(), hoaDonDAO);
-        recycleViewDaGiao.setAdapter(adapterDaGiao);
-        return listDXN;
-    }
+
+//    private void loadData (int id) {
+//        qlhd = new HoaDonDAO(getContext());
+//        ArrayList<HoaDon> listDXN = null;
+//        if (id == 1) {
+//            ArrayList<HoaDon> list = (ArrayList<HoaDon>) qlhd.getTrangThai1();
+//            listDXN = new ArrayList<>();
+//            for (int i = 0; i < list.size(); i++) {
+//                if (list.get(i).getTrangthai() == 1) {
+//                    listDXN.add(list.get(i));
+//                }
+//            }
+//        }
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+//        recycleViewDaGiao.setLayoutManager(linearLayoutManager);
+//        Adapter_DaGiao adapterDaGiao = new Adapter_DaGiao(listDXN, getContext(), qlhd);
+//        recycleViewDaGiao.setAdapter(adapterDaGiao);
+//    }
 }
 

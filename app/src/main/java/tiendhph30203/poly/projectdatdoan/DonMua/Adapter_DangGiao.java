@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -51,7 +53,6 @@ public class Adapter_DangGiao extends RecyclerView.Adapter<Adapter_DangGiao.View
         holder.txtTongTien.setText("Tổng tiền: " + list.get(position).getTongtien());
         holder.txtTrangThai.setText("Trạng Thái: " + list.get(position).getTrangthai());
         holder.txtSoLuongDaMua.setText("Số lượng đã mua: " + list.get(position).getSoluongdamua());
-
         int tinhTrang = list.get(position).getTrangthai();
         if (tinhTrang == 0) {
             holder.txtTrangThai.setText("Trạng thái: " + "Chờ xác nhận");
@@ -87,17 +88,23 @@ public class Adapter_DangGiao extends RecyclerView.Adapter<Adapter_DangGiao.View
         btnXacNhan = dialog.findViewById(R.id.btnXacNhan);
         btnHuy = dialog.findViewById(R.id.btnHuy);
         btnXacNhan.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
+
                 HoaDonDAO hoaDonDAO = new HoaDonDAO(context);
                 HoaDon hoaDon = list.get(i);
                 if (hoaDon.getTrangthai() == 0) {
                     hoaDon.setTrangthai(1);
                     hoaDonDAO.update(hoaDon);
+                    Log.d("quanquan", "onClick: "+list.get(i));
                     list.remove(i);
+
                 } else if (hoaDon.getTrangthai() == 1) {
                     hoaDonDAO.delete(hoaDon);
                     list.remove(i);
+
                 }
                 notifyDataSetChanged();
                 dialog.dismiss();
@@ -109,38 +116,10 @@ public class Adapter_DangGiao extends RecyclerView.Adapter<Adapter_DangGiao.View
                 dialog.dismiss();
             }
         });
-//        builder.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//
-//                HoaDonDAO hoaDonDAO = new HoaDonDAO(context);
-//                HoaDon hoaDon = list.get(position);
-//                if (hoaDon.getTrangthai() == 0) {
-//                    holder.btnXacNhanDonHang.setVisibility(View.GONE);
-//                    hoaDon.setTrangthai(1);
-//                    hoaDonDAO.update(hoaDon);
-//                    list.remove(position);
-////                            for (int i = 0; i < list.size(); i++) {
-////                                if (list.get(i).getTrangthai() == 1) {
-////                                    list.add(list.get(i));
-////                                }
-////                            }
-//
-//                } else if (hoaDon.getTrangthai() == 1) {
-//                    hoaDonDAO.delete(hoaDon);
-//                    list.remove(position);
-//                    holder.btnXacNhanDonHang.setVisibility(View.VISIBLE);
-//                }
-//                notifyDataSetChanged();
-//            }
-//        });
-//        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                dialog.dismiss();
-//            }
-//        });
+
     }
+
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtMaHoaDon, txtMaNguoiDung, txtMaSanPham, txtTenNguoiDung, txtNgayMua, txtTongTien, txtSoLuongDaMua, txtTrangThai;
